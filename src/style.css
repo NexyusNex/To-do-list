@@ -16,4 +16,8 @@
   display: flex;
   padding-left: 50px;
   align-items: center;
+  font-size: 48px;
+}
+.header img {
+  padding-right: 25px;
 }
