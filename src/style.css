@@ -1,3 +1,19 @@
-h1 {
-  color: blue;
+@font-face {
+  font-family: roboto;
+  src: url(Roboto-Regular.ttf);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: roboto;
+}
+
+.header {
+  background-color: #7f1d1d;
+  color: white;
+  height: 100px;
+  display: flex;
+  padding-left: 50px;
+  align-items: center;
 }
