@@ -17,8 +17,10 @@ todayImg.src = today;
 const weekImg = document.querySelector("#weekimg");
 weekImg.src = week;
 
-const listImg = document.querySelector("#listimg");
-listImg.src = list;
+const listImg = document.querySelectorAll("#listimg");
+listImg.forEach((project) => {
+  project.src = list;
+});
 
 const ToDo = () => {
   return {

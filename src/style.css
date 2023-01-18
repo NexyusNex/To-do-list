@@ -38,6 +38,10 @@ body {
   padding: 25px;
   gap: 8px;
 }
+.side-menu h3 {
+  margin: 25px 0;
+}
+
 .side-menu .button,
 .card {
   display: flex;
