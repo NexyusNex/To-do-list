@@ -9,15 +9,38 @@
   font-family: roboto;
 }
 
+body {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 100px 1fr 50px;
+  grid-template-columns: 300px 1fr;
+}
+
 .header {
+  grid-column: span 2;
   background-color: #7f1d1d;
   color: white;
   height: 100px;
   display: flex;
-  padding-left: 50px;
+  padding-left: 10px;
   align-items: center;
-  font-size: 48px;
+  font-size: 42px;
 }
+
 .header img {
   padding-right: 25px;
+}
+
+.side-menu {
+  background-color: #fee2e2;
+  height: 100%;
+}
+
+.footer {
+  grid-column: span 2;
+  background-color: #7f1d1d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
