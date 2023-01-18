@@ -38,8 +38,10 @@ body {
   padding: 25px;
   gap: 8px;
 }
-.side-menu .button {
+.side-menu .button,
+.card {
   display: flex;
+  gap: 5px;
   align-items: center;
   height: 40px;
   font-size: 18px;
