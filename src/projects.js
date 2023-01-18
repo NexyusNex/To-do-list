@@ -19,6 +19,8 @@ const projects = (() => {
       const text = document.createElement("div");
       text.textContent = projectList[i].title;
       const deletebtn = document.createElement("button");
+      deletebtn.textContent = "X";
+      deletebtn.setAttribute("id", "deletebtn");
       deletebtn.addEventListener("click", function () {
         let index = card.getAttribute("data-index");
         projects.projectList.splice(index, 1);

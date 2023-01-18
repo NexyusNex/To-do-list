@@ -73,6 +73,32 @@ body {
   background-color: #fecaca;
 }
 
+#deletebtn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #fecaca;
+  border: none;
+  font-size: 25px;
+  width: 40px;
+  height: 40px;
+  border-radius: 0 12px 12px 0;
+  margin-left: auto;
+}
+
+#deletebtn:hover {
+  background-color: #f3adad;
+  cursor: pointer;
+}
+
+#deletebtn:active {
+  background-color: #f19898;
+}
+
+.card:hover #deletebtn {
+  display: flex;
+}
+
 .footer {
   grid-column: span 2;
   background-color: #7f1d1d;
