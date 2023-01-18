@@ -60,6 +60,34 @@ body {
   background-color: #fecaca;
 }
 
+.projects-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#newprojectbtn {
+  background-color: #fee2e2;
+  display: flex;
+  border: none;
+  font-size: 32px;
+  height: 40px;
+  width: 40px;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+#newprojectbtn:hover {
+  background-color: #f19898;
+  cursor: pointer;
+}
+
+#newprojectbtn:active {
+  background-color: #d88888;
+  cursor: pointer;
+}
+
 .projects {
   display: grid;
   max-height: 500px;
@@ -117,7 +145,7 @@ body {
   grid-auto-rows: 50px;
   gap: 8px;
   height: 650px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .task {

@@ -32,11 +32,16 @@ const projects = (() => {
       card.appendChild(deletebtn);
 
       card.addEventListener("click", function () {
-        const content = document.querySelector(".content");
+        const taskContainer = document.querySelector(".task-container");
+        taskContainer.innerHTML = "";
+        const title = document.querySelector(".task-title");
         let index = card.getAttribute("data-index");
+        title.textContent = projects.projectList[index].name;
         for (let i = 0; i < projects.projectList[index].taskList.length; i++) {
-          content.textContent +=
-            " " + projects.projectList[index].taskList[i].title;
+          const task = document.createElement("div");
+          task.classList.add("task");
+          task.textContent = projects.projectList[index].taskList[i].title;
+          taskContainer.appendChild(task);
         }
       });
 
