@@ -17,11 +17,6 @@ todayImg.src = today;
 const weekImg = document.querySelector("#weekimg");
 weekImg.src = week;
 
-const listImg = document.querySelectorAll("#listimg");
-listImg.forEach((project) => {
-  project.src = list;
-});
-
 const ToDo = () => {
   return {
     title,
@@ -30,3 +25,31 @@ const ToDo = () => {
     priority,
   };
 };
+
+const projects = (() => {
+  const projectList = ["task1", "task2", "task3"];
+
+  function displayProjects(projectList) {
+    const Container = document.querySelector(".projects");
+    for (let i = 0; i < projectList.length; i++) {
+      const card = document.createElement("div");
+      card.classList.add("card");
+
+      const img = document.createElement("img");
+      img.setAttribute("alt", "list");
+      img.src = list;
+      const text = document.createElement("div");
+      text.textContent = projectList[i];
+
+      card.appendChild(img);
+      card.appendChild(text);
+      Container.appendChild(card);
+    }
+  }
+  return {
+    projectList,
+    displayProjects: displayProjects,
+  };
+})();
+
+projects.displayProjects(projects.projectList);
