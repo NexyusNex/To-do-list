@@ -51,4 +51,11 @@ addPBtn.addEventListener("click", function () {
 });
 
 const addTBtn = document.querySelector("#addTask");
-addPBtn.addEventListener("click", function () {});
+addTBtn.addEventListener("click", function () {
+  const form = document.querySelector(".form");
+  if (form.style.display !== "flex") {
+    form.style.display = "flex";
+  } else {
+    form.style.display = "none";
+  }
+});

@@ -231,7 +231,7 @@ body {
 }
 
 .form {
-  display: flex;
+  display: none;
   flex-direction: column;
   padding: 0 24px;
   position: absolute;
