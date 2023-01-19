@@ -37,12 +37,12 @@ const projects = (() => {
         const title = document.querySelector(".task-title");
         let index = card.getAttribute("data-index");
         title.textContent = projects.projectList[index].name;
-        for (let i = 0; i < projects.projectList[index].taskList.length; i++) {
+        projects.projectList[index].taskList.forEach((obj) => {
           const task = document.createElement("div");
           task.classList.add("task");
-          task.textContent = projects.projectList[index].taskList[i].title;
+          task.textContent = obj.title;
           taskContainer.appendChild(task);
-        }
+        });
       });
 
       Container.appendChild(card);

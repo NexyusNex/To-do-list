@@ -66,7 +66,7 @@ body {
   justify-content: space-between;
 }
 
-#newprojectbtn {
+#openPMenu {
   background-color: #fee2e2;
   display: flex;
   border: none;
@@ -78,14 +78,69 @@ body {
   align-items: center;
 }
 
-#newprojectbtn:hover {
+#openPMenu:hover {
   background-color: #f19898;
   cursor: pointer;
 }
 
-#newprojectbtn:active {
+#openPMenu:active {
   background-color: #d88888;
   cursor: pointer;
+}
+
+.new-project {
+  display: none;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.new-project input {
+  border: 2px solid #7f1d1d;
+  border-radius: 6px;
+  height: 30px;
+}
+
+.new-project-btn {
+  display: flex;
+  gap: 1px;
+}
+
+#addProject {
+  height: 30px;
+  width: 50%;
+  background-color: #a5eca5;
+  border: 2px solid #507250;
+  border-radius: 6px;
+  color: #3e583e;
+  font-size: 16px;
+}
+
+#addProject:hover {
+  background-color: #c1ecc1;
+  border: 2px solid #2c3f2c;
+}
+
+#addProject:active {
+  background-color: #cfe9cf;
+}
+
+#closePMenu {
+  height: 30px;
+  width: 50%;
+  background-color: #f0aeae;
+  border: 2px solid #6b0d0d;
+  border-radius: 6px;
+  color: #6b0d0d;
+  font-size: 16px;
+}
+
+#closePMenu:hover {
+  background-color: #eebdbd;
+  border: 2px solid #3f2c2c;
+}
+
+#closePMenu:active {
+  background-color: #ebc6c6;
 }
 
 .projects {

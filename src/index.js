@@ -32,3 +32,19 @@ task.taskList.push(nexa);
 task.taskList.push(nss);
 task.taskList.push(nedd);
 projects.displayProjects(projects.projectList);
+
+const openPMenu = document.querySelector("#openPMenu");
+openPMenu.addEventListener("click", function () {
+  const PMenu = document.querySelector(".new-project");
+  if (PMenu.style.display !== "flex") {
+    PMenu.style.display = "flex";
+  }
+});
+
+const closePMenu = document.querySelector("#closePMenu");
+closePMenu.addEventListener("click", function () {
+  const PMenu = document.querySelector(".new-project");
+  if (PMenu.style.display !== "none") {
+    PMenu.style.display = "none";
+  }
+});
