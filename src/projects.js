@@ -46,6 +46,8 @@ const projects = (() => {
           task.textContent = obj.title;
           taskContainer.appendChild(task);
         });
+        document.querySelector("#addTask").style.display = "flex";
+        document.querySelector(".form").style.display = "none";
       });
 
       Container.appendChild(card);

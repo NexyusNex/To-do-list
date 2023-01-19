@@ -63,7 +63,21 @@ addTBtn.addEventListener("click", function () {
 const finishBtn = document.querySelector("#finish");
 finishBtn.addEventListener("click", function () {
   const title = document.querySelector("#title").value;
-  const obj = ToDo(title, "lala", "mika", "pera");
+  let radio = document.querySelector('input[name="priority"]:checked').value;
+
+  const obj = ToDo(title, "lala", "mika", radio);
   const index = document.querySelector(".form").getAttribute("data-index");
   projects.projectList[index].taskList.push(obj);
+
+  const taskContainer = document.querySelector(".task-container");
+  taskContainer.innerHTML = "";
+  const Ptitle = document.querySelector(".task-title");
+  Ptitle.textContent = projects.projectList[index].name;
+  projects.projectList[index].taskList.forEach((obj) => {
+    const task = document.createElement("div");
+    task.classList.add("task");
+    task.classList.add(obj.priority);
+    task.textContent = obj.title;
+    taskContainer.appendChild(task);
+  });
 });
