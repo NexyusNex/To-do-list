@@ -29,7 +29,6 @@ openPMenu.addEventListener("click", function () {
   if (PMenu.style.display !== "flex") {
     PMenu.style.display = "flex";
   }
-  projects.displayProjects();
 });
 
 const closePMenu = document.querySelector("#closePMenu");
@@ -39,6 +38,7 @@ closePMenu.addEventListener("click", function () {
     PMenu.style.display = "none";
   }
 });
+
 var listIndex = 0;
 const addPBtn = document.querySelector("#addProject");
 addPBtn.addEventListener("click", function () {
@@ -58,4 +58,12 @@ addTBtn.addEventListener("click", function () {
   } else {
     form.style.display = "none";
   }
+});
+
+const finishBtn = document.querySelector("#finish");
+finishBtn.addEventListener("click", function () {
+  const title = document.querySelector("#title").value;
+  const obj = ToDo(title, "lala", "mika", "pera");
+  const index = document.querySelector(".form").getAttribute("data-index");
+  projects.projectList[index].taskList.push(obj);
 });

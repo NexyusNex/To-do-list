@@ -1,4 +1,5 @@
 import list from "../Images/list.png";
+import selectedIndex from "./selectedIndex";
 const projects = (() => {
   const projectList = [];
 
@@ -37,6 +38,7 @@ const projects = (() => {
         taskContainer.innerHTML = "";
         const title = document.querySelector(".task-title");
         let index = card.getAttribute("data-index");
+        document.querySelector(".form").setAttribute("data-index", index);
         title.textContent = projects.projectList[index].name;
         projects.projectList[index].taskList.forEach((obj) => {
           const task = document.createElement("div");
