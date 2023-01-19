@@ -21,16 +21,6 @@ todayImg.src = today;
 const weekImg = document.querySelector("#weekimg");
 weekImg.src = week;
 
-const task = list(0, "nexa");
-const task1 = list(1, "mita");
-const task2 = list(2, "pera");
-const nexa = ToDo("aaa", "lala", "mika", "pera");
-const nss = ToDo("nsdsda", "lala", "mika", "pera");
-const nedd = ToDo("nexa", "lala", "mika", "pera");
-projects.projectList.push(task);
-task.taskList.push(nexa);
-task.taskList.push(nss);
-task.taskList.push(nedd);
 projects.displayProjects(projects.projectList);
 
 const openPMenu = document.querySelector("#openPMenu");
@@ -39,6 +29,7 @@ openPMenu.addEventListener("click", function () {
   if (PMenu.style.display !== "flex") {
     PMenu.style.display = "flex";
   }
+  projects.displayProjects();
 });
 
 const closePMenu = document.querySelector("#closePMenu");
@@ -48,3 +39,16 @@ closePMenu.addEventListener("click", function () {
     PMenu.style.display = "none";
   }
 });
+var listIndex = 0;
+const addPBtn = document.querySelector("#addProject");
+addPBtn.addEventListener("click", function () {
+  console.log(projects.projectList);
+  const PName = document.querySelector("#PName").value;
+  const obj = list(listIndex, PName);
+  projects.projectList.push(obj);
+  listIndex++;
+  projects.displayProjects(projects.projectList);
+});
+
+const addTBtn = document.querySelector("#addTask");
+addPBtn.addEventListener("click", function () {});

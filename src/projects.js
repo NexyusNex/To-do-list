@@ -4,6 +4,7 @@ const projects = (() => {
 
   function displayProjects(projectList) {
     const Container = document.querySelector(".projects");
+    Container.innerHTML = "";
     if (projectList == null) {
       Container.innerHTML = "";
       return;
@@ -24,7 +25,7 @@ const projects = (() => {
       deletebtn.addEventListener("click", function () {
         let index = card.getAttribute("data-index");
         projects.projectList.splice(index, 1);
-        displayProjects();
+        displayProjects(projectList);
       });
 
       card.appendChild(img);
