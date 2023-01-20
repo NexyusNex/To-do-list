@@ -1,5 +1,3 @@
-import ToDo from "./to-do";
-
 const list = (index, name) => {
   const taskList = [];
   return {
