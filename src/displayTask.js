@@ -22,8 +22,6 @@ export default function displayTask(index) {
         "Edit Task " + obj.title;
       if (form.style.display !== "flex") {
         form.style.display = "flex";
-      } else {
-        form.style.display = "none";
       }
     });
     todoI++;

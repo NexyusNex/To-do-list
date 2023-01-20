@@ -355,7 +355,9 @@ body {
   border: 2px dashed #ffffff;
 }
 
-#finish {
+#finish,
+#hide {
+  padding: 0 40px;
   height: 40px;
   margin-top: 20px;
   border-radius: 8px;
@@ -364,13 +366,21 @@ body {
   color: #7f1d1d;
 }
 
-#finish:hover {
+.action {
+  display: flex;
+  justify-content: space-around;
+  gap: 8px;
+}
+
+#finish:hover,
+#hide:hover {
   background-color: #fee2e2;
   border: 2px solid #fee2e2;
   cursor: pointer;
 }
 
-#finish:active {
+#finish:active,
+#hide:active {
   background-color: #dac1c1;
   border: 2px solid #dbc3c3;
 }

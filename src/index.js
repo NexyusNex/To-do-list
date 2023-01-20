@@ -57,7 +57,13 @@ addTBtn.addEventListener("click", function () {
   document.querySelector(".form-title").textContent = "Add a Task";
   if (form.style.display !== "flex") {
     form.style.display = "flex";
-  } else {
+  }
+});
+
+const hideBtn = document.querySelector("#hide");
+hideBtn.addEventListener("click", function () {
+  const form = document.querySelector(".form");
+  if (form.style.display !== "none") {
     form.style.display = "none";
   }
 });
