@@ -9,6 +9,7 @@ import projects from "./projects";
 import list from "./list";
 import ToDo from "./to-do";
 import displayTask from "./displayTask";
+import checkInput from "./checkInput";
 
 const logoImg = document.querySelector("#logo");
 logoImg.src = logo;
@@ -69,11 +70,16 @@ hideBtn.addEventListener("click", function () {
 });
 
 const finishBtn = document.querySelector("#finish");
-finishBtn.addEventListener("click", function () {
+finishBtn.addEventListener("click", function (e) {
+  e.preventDefault();
   const title = document.querySelector("#title").value;
   const radio = document.querySelector('input[name="priority"]:checked').value;
   const dueDate = document.querySelector("#date").value;
   const desc = document.querySelector("#desc").value;
+
+  if (checkInput(title)) return;
+  if (checkInput(desc)) return;
+
   if (document.querySelector(".form").getAttribute("isTask") == 0) {
     const obj = ToDo(title, desc, dueDate, radio);
     const index = document.querySelector(".form").getAttribute("data-index");

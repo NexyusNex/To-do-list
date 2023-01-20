@@ -247,8 +247,7 @@ body {
   border-left: 12px solid #ff0000;
 }
 
-.form,
-.form-edit {
+.form {
   display: none;
   flex-direction: column;
   padding: 0 24px;
@@ -267,21 +266,18 @@ body {
   justify-content: space-around;
 }
 
-.form h1,
-.form-edit h1 {
+.form h1 {
   margin: 0 auto;
   padding: 8px 0;
 }
 
-.form input,
-.form-edit input {
+.form input {
   height: 34px;
   border-radius: 8px;
   border: 2px solid #d88888;
 }
 
-.form input:focus,
-.form-edit:focus {
+.form input:focus {
   border: 2px solid #000000;
   outline: none;
 }
