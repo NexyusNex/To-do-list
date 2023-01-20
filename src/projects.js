@@ -43,6 +43,7 @@ const projects = (() => {
         projects.projectList[index].taskList.forEach((obj) => {
           const task = document.createElement("div");
           task.classList.add("task");
+          task.classList.add(obj.priority);
           task.textContent = obj.title;
           taskContainer.appendChild(task);
         });

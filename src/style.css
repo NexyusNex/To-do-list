@@ -230,15 +230,15 @@ body {
   background-color: #fee2e2;
 }
 
-.task + .L {
+.task.L {
   border-left: 12px solid #00b400;
 }
 
-.task + .M {
+.task.M {
   border-left: 12px solid #ff7b00;
 }
 
-.task + .H {
+.task.H {
   border-left: 12px solid #ff0000;
 }
 
