@@ -8,6 +8,7 @@ import week from "../Images/calendar-week.png";
 import projects from "./projects";
 import list from "./list";
 import ToDo from "./to-do";
+import displayTask from "./displayTask";
 
 const logoImg = document.querySelector("#logo");
 logoImg.src = logo;
@@ -42,7 +43,6 @@ closePMenu.addEventListener("click", function () {
 var listIndex = 0;
 const addPBtn = document.querySelector("#addProject");
 addPBtn.addEventListener("click", function () {
-  console.log(projects.projectList);
   const PName = document.querySelector("#PName").value;
   const obj = list(listIndex, PName);
   projects.projectList.push(obj);
@@ -53,6 +53,8 @@ addPBtn.addEventListener("click", function () {
 const addTBtn = document.querySelector("#addTask");
 addTBtn.addEventListener("click", function () {
   const form = document.querySelector(".form");
+  form.setAttribute("isTask", 0);
+  document.querySelector(".form-title").textContent = "Add a Task";
   if (form.style.display !== "flex") {
     form.style.display = "flex";
   } else {
@@ -63,21 +65,32 @@ addTBtn.addEventListener("click", function () {
 const finishBtn = document.querySelector("#finish");
 finishBtn.addEventListener("click", function () {
   const title = document.querySelector("#title").value;
-  let radio = document.querySelector('input[name="priority"]:checked').value;
+  const radio = document.querySelector('input[name="priority"]:checked').value;
+  const dueDate = document.querySelector("#date").value;
+  const desc = document.querySelector("#desc").value;
+  if (document.querySelector(".form").getAttribute("isTask") == 0) {
+    const obj = ToDo(title, desc, dueDate, radio);
+    const index = document.querySelector(".form").getAttribute("data-index");
+    projects.projectList[index].taskList.push(obj);
+    const taskContainer = document.querySelector(".task-container");
+    taskContainer.innerHTML = "";
+    const Ptitle = document.querySelector(".task-title");
+    Ptitle.textContent = projects.projectList[index].name;
+    displayTask(index);
+  }
+  if (document.querySelector(".form").getAttribute("isTask") == 1) {
+    const index = document.querySelector(".form").getAttribute("data-index");
+    const obj =
+      projects.projectList[index].taskList[
+        document.querySelector(".form").getAttribute("data-todo")
+      ];
+    obj.title = title;
+    obj.priority = radio;
+    obj.dueDate = dueDate;
+    obj.description = desc;
 
-  const obj = ToDo(title, "lala", "mika", radio);
-  const index = document.querySelector(".form").getAttribute("data-index");
-  projects.projectList[index].taskList.push(obj);
-
-  const taskContainer = document.querySelector(".task-container");
-  taskContainer.innerHTML = "";
-  const Ptitle = document.querySelector(".task-title");
-  Ptitle.textContent = projects.projectList[index].name;
-  projects.projectList[index].taskList.forEach((obj) => {
-    const task = document.createElement("div");
-    task.classList.add("task");
-    task.classList.add(obj.priority);
-    task.textContent = obj.title;
-    taskContainer.appendChild(task);
-  });
+    const taskContainer = document.querySelector(".task-container");
+    taskContainer.innerHTML = "";
+    displayTask(index);
+  }
 });

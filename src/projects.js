@@ -1,5 +1,5 @@
 import list from "../Images/list.png";
-import selectedIndex from "./selectedIndex";
+import displayTask from "./displayTask";
 const projects = (() => {
   const projectList = [];
 
@@ -40,13 +40,7 @@ const projects = (() => {
         let index = card.getAttribute("data-index");
         document.querySelector(".form").setAttribute("data-index", index);
         title.textContent = projects.projectList[index].name;
-        projects.projectList[index].taskList.forEach((obj) => {
-          const task = document.createElement("div");
-          task.classList.add("task");
-          task.classList.add(obj.priority);
-          task.textContent = obj.title;
-          taskContainer.appendChild(task);
-        });
+        displayTask(index);
         document.querySelector("#addTask").style.display = "flex";
         document.querySelector(".form").style.display = "none";
       });
