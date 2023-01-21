@@ -26,6 +26,11 @@ const projects = (() => {
       deletebtn.addEventListener("click", function () {
         let index = card.getAttribute("data-index");
         projects.projectList.splice(index, 1);
+        if (projects.projectList.length < 1) {
+          document.querySelector(".task-title").textContent = "";
+          document.querySelector("#addTask").style.display = "none";
+          document.querySelector(".task-container").innerHTML = "";
+        }
         displayProjects(projectList);
       });
 
