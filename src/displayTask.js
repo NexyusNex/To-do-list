@@ -19,7 +19,7 @@ export default function displayTask(index) {
     checkbtn.addEventListener("click", function (e) {
       e.stopPropagation();
       const taskIndex = task.getAttribute("data-todo");
-      projects.projectList[index].taskList.splice(index, 1);
+      projects.projectList[index].taskList.splice(taskIndex, 1);
       displayTask(index);
     });
     rightSection.appendChild(checkbtn);

@@ -51,8 +51,6 @@ const projects = (() => {
       card.appendChild(deletebtn);
 
       card.addEventListener("click", function () {
-        const taskContainer = document.querySelector(".task-container");
-        taskContainer.innerHTML = "";
         const title = document.querySelector(".task-title");
         let index = card.getAttribute("data-index");
         document.querySelector(".form").setAttribute("data-index", index);
