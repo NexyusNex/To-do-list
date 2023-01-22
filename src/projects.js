@@ -15,6 +15,7 @@ const projects = (() => {
   }
 
   function displayProjects(projectList) {
+    projects.saveProjectsToStorage(projects.projectList);
     const Container = document.querySelector(".projects");
     Container.innerHTML = "";
     if (projectList == null) {

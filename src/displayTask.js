@@ -2,6 +2,8 @@ import projects from "./projects";
 
 export default function displayTask(index) {
   projects.saveProjectsToStorage(projects.projectList);
+  const taskContainer = document.querySelector(".task-container");
+  taskContainer.innerHTML = "";
   let todoI = 0;
   projects.projectList[index].taskList.forEach((obj) => {
     const task = document.createElement("div");
@@ -10,9 +12,19 @@ export default function displayTask(index) {
     task.classList.add(obj.priority);
     task.textContent = obj.title;
     const rightSection = document.createElement("div");
+    rightSection.classList.add("right-section");
     rightSection.textContent = obj.dueDate;
-    document.querySelector(".task-container").appendChild(task);
+    const checkbtn = document.createElement("button");
+    checkbtn.classList.add("check-btn");
+    checkbtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const taskIndex = task.getAttribute("data-todo");
+      projects.projectList[index].taskList.splice(index, 1);
+      displayTask(index);
+    });
+    rightSection.appendChild(checkbtn);
     task.appendChild(rightSection);
+    document.querySelector(".task-container").appendChild(task);
 
     task.addEventListener("click", function () {
       const form = document.querySelector(".form");

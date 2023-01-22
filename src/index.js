@@ -48,8 +48,9 @@ addPBtn.addEventListener("click", function () {
   const obj = list(listIndex, PName);
   projects.projectList.push(obj);
   listIndex++;
-  projects.saveProjectsToStorage(projects.projectList);
   projects.displayProjects(projects.projectList);
+  document.querySelector("#PName").value = "";
+  document.querySelector(".new-project").style.display = "none";
 });
 
 const addTBtn = document.querySelector("#addTask");
@@ -72,6 +73,7 @@ hideBtn.addEventListener("click", function () {
 
 const finishBtn = document.querySelector("#finish");
 finishBtn.addEventListener("click", function () {
+  const form = document.querySelector(".form");
   const title = document.querySelector("#title").value;
   const radio = document.querySelector('input[name="priority"]:checked').value;
   const dueDate = document.querySelector("#date").value;
@@ -82,9 +84,9 @@ finishBtn.addEventListener("click", function () {
   if (checkInput(dueDate)) return;
   if (checkInput(radio)) return;
 
-  if (document.querySelector(".form").getAttribute("isTask") == 0) {
+  if (form.getAttribute("isTask") == 0) {
     const obj = ToDo(title, desc, dueDate, radio);
-    const index = document.querySelector(".form").getAttribute("data-index");
+    const index = form.getAttribute("data-index");
     projects.projectList[index].taskList.push(obj);
     const taskContainer = document.querySelector(".task-container");
     taskContainer.innerHTML = "";
@@ -92,12 +94,10 @@ finishBtn.addEventListener("click", function () {
     Ptitle.textContent = projects.projectList[index].name;
     displayTask(index);
   }
-  if (document.querySelector(".form").getAttribute("isTask") == 1) {
-    const index = document.querySelector(".form").getAttribute("data-index");
+  if (form.getAttribute("isTask") == 1) {
+    const index = form.getAttribute("data-index");
     const obj =
-      projects.projectList[index].taskList[
-        document.querySelector(".form").getAttribute("data-todo")
-      ];
+      projects.projectList[index].taskList[form.getAttribute("data-todo")];
     obj.title = title;
     obj.priority = radio;
     obj.dueDate = dueDate;
@@ -107,12 +107,9 @@ finishBtn.addEventListener("click", function () {
     taskContainer.innerHTML = "";
     displayTask(index);
   }
-});
-
-document.addEventListener("keydown", function (e) {
-  if (e.key == "c") {
-    console.log("pressed");
-    localStorage.clear();
-  }
-  return;
+  document.querySelector("#title").value = "";
+  document.querySelector('input[name="priority"]:checked').checked = false;
+  document.querySelector("#date").value = "";
+  document.querySelector("#desc").value = "";
+  form.style.display = "none";
 });
