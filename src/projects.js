@@ -1,7 +1,18 @@
 import list from "../Images/list.png";
 import displayTask from "./displayTask";
 const projects = (() => {
-  const projectList = [];
+  const projectList = loadProjectsFromStorage();
+
+  function loadProjectsFromStorage() {
+    if (localStorage.getItem("projectList")) {
+      return JSON.parse(localStorage.getItem("projectList"));
+    }
+    return [];
+  }
+
+  function saveProjectsToStorage(projectList) {
+    localStorage.setItem("projectList", JSON.stringify(projectList));
+  }
 
   function displayProjects(projectList) {
     const Container = document.querySelector(".projects");
@@ -56,6 +67,8 @@ const projects = (() => {
   return {
     projectList,
     displayProjects: displayProjects,
+    loadProjectsFromStorage: loadProjectsFromStorage,
+    saveProjectsToStorage: saveProjectsToStorage,
   };
 })();
 

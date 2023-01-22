@@ -48,6 +48,7 @@ addPBtn.addEventListener("click", function () {
   const obj = list(listIndex, PName);
   projects.projectList.push(obj);
   listIndex++;
+  projects.saveProjectsToStorage(projects.projectList);
   projects.displayProjects(projects.projectList);
 });
 
@@ -70,8 +71,7 @@ hideBtn.addEventListener("click", function () {
 });
 
 const finishBtn = document.querySelector("#finish");
-finishBtn.addEventListener("click", function (e) {
-  e.preventDefault();
+finishBtn.addEventListener("click", function () {
   const title = document.querySelector("#title").value;
   const radio = document.querySelector('input[name="priority"]:checked').value;
   const dueDate = document.querySelector("#date").value;
@@ -79,6 +79,8 @@ finishBtn.addEventListener("click", function (e) {
 
   if (checkInput(title)) return;
   if (checkInput(desc)) return;
+  if (checkInput(dueDate)) return;
+  if (checkInput(radio)) return;
 
   if (document.querySelector(".form").getAttribute("isTask") == 0) {
     const obj = ToDo(title, desc, dueDate, radio);
@@ -105,4 +107,12 @@ finishBtn.addEventListener("click", function (e) {
     taskContainer.innerHTML = "";
     displayTask(index);
   }
+});
+
+document.addEventListener("keydown", function (e) {
+  if (e.key == "c") {
+    console.log("pressed");
+    localStorage.clear();
+  }
+  return;
 });

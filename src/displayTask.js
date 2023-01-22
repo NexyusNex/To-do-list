@@ -1,6 +1,7 @@
 import projects from "./projects";
 
 export default function displayTask(index) {
+  projects.saveProjectsToStorage(projects.projectList);
   let todoI = 0;
   projects.projectList[index].taskList.forEach((obj) => {
     const task = document.createElement("div");
