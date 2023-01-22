@@ -75,7 +75,14 @@ const finishBtn = document.querySelector("#finish");
 finishBtn.addEventListener("click", function () {
   const form = document.querySelector(".form");
   const title = document.querySelector("#title").value;
-  const radio = document.querySelector('input[name="priority"]:checked').value;
+  const radios = document.getElementsByName("priority");
+  let radio = "";
+  for (let i = 0; i < radios.length; i++) {
+    if (radios[i].checked) {
+      radio = radios[i].value;
+      break;
+    }
+  }
   const dueDate = document.querySelector("#date").value;
   const desc = document.querySelector("#desc").value;
 

@@ -254,6 +254,18 @@ body {
   gap: 24px;
 }
 
+.edit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: #ffe0e000;
+}
+
+.edit-btn::before {
+  font-size: 24px;
+  content: "✎";
+}
 .check-btn {
   display: flex;
   justify-content: center;
@@ -262,11 +274,7 @@ body {
   width: 25px;
   height: 25px;
   border-radius: 20px;
-  background-color: #ffe0e082;
-}
-
-.check-btn:hover {
-  background-color: #ffe0e0;
+  background-color: #ffe0e000;
 }
 
 .check-btn:hover::after {

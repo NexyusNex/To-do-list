@@ -14,19 +14,11 @@ export default function displayTask(index) {
     const rightSection = document.createElement("div");
     rightSection.classList.add("right-section");
     rightSection.textContent = obj.dueDate;
-    const checkbtn = document.createElement("button");
-    checkbtn.classList.add("check-btn");
-    checkbtn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      const taskIndex = task.getAttribute("data-todo");
-      projects.projectList[index].taskList.splice(taskIndex, 1);
-      displayTask(index);
-    });
-    rightSection.appendChild(checkbtn);
-    task.appendChild(rightSection);
-    document.querySelector(".task-container").appendChild(task);
 
-    task.addEventListener("click", function () {
+    const editbtn = document.createElement("button");
+    editbtn.classList.add("edit-btn");
+    editbtn.addEventListener("click", function (e) {
+      e.stopPropagation();
       const form = document.querySelector(".form");
       const taskIndex = task.getAttribute("data-todo");
       form.setAttribute("data-todo", taskIndex);
@@ -37,6 +29,20 @@ export default function displayTask(index) {
         form.style.display = "flex";
       }
     });
+
+    const checkbtn = document.createElement("button");
+    checkbtn.classList.add("check-btn");
+    checkbtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const taskIndex = task.getAttribute("data-todo");
+      projects.projectList[index].taskList.splice(taskIndex, 1);
+      displayTask(index);
+    });
+    rightSection.appendChild(editbtn);
+    rightSection.appendChild(checkbtn);
+    task.appendChild(rightSection);
+    document.querySelector(".task-container").appendChild(task);
+
     todoI++;
   });
 }
