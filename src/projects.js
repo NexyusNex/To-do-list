@@ -5,7 +5,7 @@ const projects = (() => {
 
   function loadProjectsFromStorage() {
     if (localStorage.getItem("projectList")) {
-      console.log(JSON.parse(localStorage.getItem("projectList")));
+      return JSON.parse(localStorage.getItem("projectList"));
     }
     return [];
   }
