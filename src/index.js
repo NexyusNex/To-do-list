@@ -120,3 +120,10 @@ finishBtn.addEventListener("click", function () {
   document.querySelector("#desc").value = "";
   form.style.display = "none";
 });
+
+const hamburger = document.querySelector(".hamburger");
+hamburger.addEventListener("click", function () {
+  const menu = document.querySelector(".side-menu");
+  menu.classList.toggle("pressed");
+  hamburger.classList.toggle("pressed");
+});
