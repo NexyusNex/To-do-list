@@ -443,15 +443,37 @@ body {
   width: 30px;
   aspect-ratio: 1/1;
   transition: all 600ms;
+  display: none;
 }
 
 .hamburger.pressed {
   transform: rotate(90deg);
 }
 
+@keyframes openMenu {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes closeMenu {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
 @media screen and (width<=800px) {
   .grid-container {
-    height: auto;
     grid-template-columns: 1fr;
   }
   .task-container {
@@ -459,16 +481,17 @@ body {
   }
   .side-menu {
     opacity: 0;
-    transform: translateX(100%);
     position: absolute;
-    transition: all 600ms;
     width: 300px;
     min-height: 100svh;
     right: 0;
+    animation-name: closeMenu;
+    animation-duration: 300ms;
   }
   .side-menu.pressed {
     opacity: 1;
-    transform: translateX(0);
+    animation-name: openMenu;
+    animation-duration: 300ms;
   }
   .header {
     font-size: 32px;
@@ -476,5 +499,8 @@ body {
   }
   .form {
     width: clamp(300px, 90%, 400px);
+  }
+  .hamburger {
+    display: block;
   }
 }
