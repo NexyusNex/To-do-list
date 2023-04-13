@@ -10,14 +10,16 @@
 }
 
 body {
+  height: 100svh;
+}
+
+.grid-container {
   display: grid;
-  grid-template-rows: 100px 1fr 50px;
+  height: 100%;
   grid-template-columns: 300px 1fr;
-  height: 100vh;
 }
 
 .header {
-  grid-column: span 2;
   background-color: #7f1d1d;
   color: white;
   height: 100px;
@@ -425,4 +427,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (width<=800px) {
+  .grid-container {
+    grid-template-columns: auto;
+  }
+  .task-container {
+    height: auto;
+  }
+  .footer {
+    margin-top: 50px;
+  }
 }
