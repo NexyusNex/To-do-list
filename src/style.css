@@ -452,6 +452,7 @@ body {
 
 @keyframes openMenu {
   0% {
+    display: block;
     opacity: 0;
     transform: translateX(100%);
   }
@@ -474,6 +475,7 @@ body {
 
 @media screen and (width<=800px) {
   .grid-container {
+    height: auto;
     grid-template-columns: 1fr;
   }
   .task-container {
@@ -487,11 +489,13 @@ body {
     right: 0;
     animation-name: closeMenu;
     animation-duration: 300ms;
+    pointer-events: none;
   }
   .side-menu.pressed {
     opacity: 1;
     animation-name: openMenu;
     animation-duration: 300ms;
+    pointer-events: all;
   }
   .header {
     font-size: 32px;
